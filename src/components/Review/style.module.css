@@ -1,0 +1,46 @@
+.Review{
+   box-sizing: border-box;
+   background-color: var(--blockBackground);
+   border: 1px solid var(--blockBorder);
+   border-radius: 15px;
+   width: 300px;
+   min-height: 240px;
+   height: 240px;
+   padding: 15px;
+   display: flex;
+   flex-flow: column;
+   justify-content: space-between;
+}
+
+.info{
+   font-size: 2rem;
+   display: flex;
+   align-items: center;
+   justify-content: space-between;
+}
+
+.name{
+   font-size: 2rem;
+}
+
+.stars{
+   display: flex;
+   align-items: center;
+   gap: 5px;
+   svg{
+      fill: var(--highlightingColor);
+      width: 25px;
+   }
+}
+
+.text{
+   font-size: 1.6rem;
+   height: 135px;
+   overflow-y: auto;
+}
+
+.date{
+   text-align: right;
+   font-size: 1.4rem;
+   opacity: .8;
+}

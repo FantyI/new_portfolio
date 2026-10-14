@@ -1,0 +1,54 @@
+.title{
+   font-size: 2.4rem;
+   margin-bottom: 20px;
+}
+
+.Directions{
+   padding: 20px;
+   background-color: var(--blockBackground);
+   border: 1px solid var(--blockBorder);
+   border-radius: 20px;
+   font-weight: 400;
+}
+
+.name{
+   font-size: 2rem;
+   display: flex;
+   align-items: center;
+   position: relative;
+   margin-bottom: 7px;
+}
+
+.name::before{
+   content: '';
+   display: flex;
+   width: 18px;
+   height: 18px;
+   background-color: var(--highlightingColor);
+   border-radius: 9999px;
+   box-shadow: 0 0 10px 1px var(--highlightingColor);
+   margin-right: 10px;
+   /* position: absolute; */
+}
+
+.text{
+   font-size: 1.6rem;
+   display: flex;
+   position: relative;
+   width: 500px;
+}
+
+
+
+.text::before{
+   content: '';
+   display: flex;
+   border: none;
+   box-sizing: border-box;
+   width: 4px;
+   height: 100px;
+   background-color: var(--highlightingColor);
+   margin-left: 8px;
+   margin-right: 20px;
+}
+

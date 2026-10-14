@@ -1,0 +1,19 @@
+.PopUpNotifications {
+   position: fixed;
+   right: 30px;
+   bottom: -10px;
+   font-size: 1.6rem;
+   padding: 20px;
+   background-color: var(--blockBackground);
+   border: 1px solid var(--blockBorder);
+   border-radius: 10px;
+   z-index: 1000;
+   transition: all .2s;
+   width: 430px;
+   box-sizing: border-box;
+   text-align: center;
+}
+
+.visible {
+   bottom: 10px;
+}

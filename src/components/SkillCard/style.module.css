@@ -1,0 +1,25 @@
+.SkillCard {
+   width: 115px;
+   height: 115px;
+   background-color: white;
+   color: var(--mainBackgroundColor);
+   display: flex;
+   align-items: center;
+   justify-content: center;
+   flex-flow: column;
+   font-size: 2rem;
+   font-weight: 600;
+   border-radius: 10px;
+   cursor: default;
+   transition: box-shadow .3s;
+}
+
+/* .SkillCard:hover{
+   box-shadow: 0 0 35px 0 #fff;
+   
+} */
+
+.icon svg{
+   width: 50px;
+   height: 50px;
+}

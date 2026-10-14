@@ -1,0 +1,10 @@
+
+.Works{
+   /* display: flex;
+   align-items: center;
+   justify-content: space-between;
+   flex-flow: wrap; */
+   display: grid;
+   grid-template-columns: repeat(3, 1fr);
+   gap: 50px
+}

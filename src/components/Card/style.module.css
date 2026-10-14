@@ -1,0 +1,27 @@
+
+.card{
+   box-sizing: border-box;
+   padding: 15px;
+   background-color: var(--blockBackground);
+   border: 1px solid var(--blockBorder);
+   border-radius: 20px;
+   width: 250px;
+   font-size: 1.6rem;
+   position: relative;
+}
+
+.icon{
+   width: 40px;
+   height: 40px;
+   display: flex;
+   align-items: center;
+   justify-content: center;
+   border-radius: 5px;
+   border: 1px solid var(--blockBorder);
+   background-color: var(--highlightingColor);
+}
+
+.name{
+   margin-block: 10px 5px;
+   font-weight: 600
+}

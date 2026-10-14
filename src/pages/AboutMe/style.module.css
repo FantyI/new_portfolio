@@ -1,0 +1,13 @@
+.AboutMe{
+   display: flex;
+   align-items: center;
+   justify-content: space-between;
+   padding-top: 100px;
+}
+
+.wrapCards{
+   display: flex;
+   align-items: center;
+   gap: 30px;
+   margin-top: 50px;
+}
