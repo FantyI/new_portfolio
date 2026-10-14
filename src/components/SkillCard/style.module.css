@@ -3,7 +3,7 @@
    width: 110px;
    height: 110px;
    background-color: #fff;
-   color: var(--mainBackgroundColor);
+   color: #09090b;
    display: flex;
    align-items: center;
    justify-content: center;
@@ -14,6 +14,7 @@
    text-align: center;
    border-radius: 14px;
    cursor: default;
+   border: 1px solid var(--blockBorder);
    transition: box-shadow .3s;
 }
 

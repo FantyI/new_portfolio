@@ -170,6 +170,11 @@
    }
 }
 
+/* Белые иконки на светлом фоне делаем тёмными */
+:global([data-theme="light"]) .links img {
+   filter: invert(1);
+}
+
 .technologies {
    display: flex;
    flex-flow: wrap;

@@ -6,6 +6,13 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Глеб — резюме веб-разработчика</title>
     <meta name="description" content="Резюме: Разработчик Web и мультимедийных приложений" />
+    <script>
+      // Тема применяется до загрузки React, чтобы не было мигания
+      try {
+        const theme = localStorage.getItem('theme')
+        if (theme) document.documentElement.dataset.theme = theme
+      } catch (e) {}
+    </script>
   </head>
   <body>
     <div id="root"></div>
