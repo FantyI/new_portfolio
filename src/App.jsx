@@ -1,90 +1,70 @@
 import { useEffect, useRef, useState } from 'react'
+import gsap from 'gsap'
+import { ScrollTrigger } from 'gsap/all'
 
-import './App.css'
 import Navigation from './components/Navigation/Navigation'
-import HomePages from './pages/HomePages/HomePages'
-import AboutMe from './pages/AboutMe/AboutMe'
+import Hero from './pages/Hero/Hero'
+import Experience from './pages/Experience/Experience'
 import Skills from './pages/Skills/Skills'
-import Works from './pages/Works/Works'
-import Reviews from './pages/Reviews/Reviews'
-import Resume from './pages/Resume/Resume'
-import SocialNetworks from './components/SocialNetworks/SocialNetworks'
+import Education from './pages/Education/Education'
+import Qualities from './pages/Qualities/Qualities'
+import Additional from './pages/Additional/Additional'
+import CoverLetter from './pages/CoverLetter/CoverLetter'
+import Footer from './pages/Footer/Footer'
 import Feedback from './pages/Feedback/Feedback'
 import PopUpNotifications from './components/PopUpNotifications/PopUpNotifications'
-import gsap from 'gsap'
-import { ScrollTrigger, SplitText } from 'gsap/all'
 
-gsap.registerPlugin(ScrollTrigger, SplitText);
+gsap.registerPlugin(ScrollTrigger);
 
 function App() {
   const [visible, setVisible] = useState(false)
   const [active, setActive] = useState(false)
   const [hide, setHide] = useState(false)
-  const [scroll, setScroll] = useState(0)
   const [text, setText] = useState('')
+  const lastScroll = useRef(0)
 
-  const textNotifications = async (text) => {
-    setText(''); 
+  const textNotifications = (text) => {
+    setText('');
 
     setTimeout(() => {
-      setText(text); 
+      setText(text);
       setTimeout(() => {
-        setText(''); 
+        setText('');
       }, 4000);
     }, 100);
   }
-  
+
+  // Навигация: фон после прокрутки, прячется при скролле вниз
   useEffect(() => {
-
     const handleScroll = () => {
-      if (window.scrollY < 130) {
-        return setActive(false)
-      }
-      if (scroll < window.scrollY) {
-        setHide(true)
-      } else {
-        setHide(false)
-      }
-
-      setScroll(window.scrollY)
-      setActive(true)
-      if (window.scrollY < 500) {
-        return setHide(false)
-      }
-
+      const y = window.scrollY
+      setActive(y > 30)
+      setHide(y > 500 && y > lastScroll.current)
+      lastScroll.current = y
     }
     window.addEventListener('scroll', handleScroll)
 
     return () => {
       window.removeEventListener('scroll', handleScroll)
     }
-  }, [scroll])
+  }, [])
 
-  //contactWindow={true}
   return (
     <>
-      <Navigation visible={visible} setVisible={setVisible} hide={hide} active={active} />
-      <HomePages setVisible={setVisible} textNotifications={textNotifications} />
-      <AboutMe />
-      <Skills />
-      <Works textNotifications={textNotifications} />
-      <Reviews />
-      <Resume />
-      <SocialNetworks />
+      <Navigation setVisible={setVisible} hide={hide} active={active} />
+      <main>
+        <Hero setVisible={setVisible} />
+        <Experience />
+        <Skills />
+        <Education />
+        <Qualities />
+        <Additional />
+        <CoverLetter />
+      </main>
+      <Footer setVisible={setVisible} />
       <Feedback visible={visible} setVisible={setVisible} textNotifications={textNotifications} />
-      <PopUpNotifications text={text} setText={setText} />
+      <PopUpNotifications text={text} />
     </>
-    // <>
-    //   <Navigation visible={visible} setVisible={setVisible} hide={hide} active={active} />
-    //   <HomePages textNotifications={textNotifications} setVisible={setVisible} setText={setText}/>
-    //   <AboutMe />
-    //   <Skills />
-    //   <Works textNotifications={textNotifications}/>
-    //   <Reviews />
-    //   <SocialNetworks />
-    //   <Feedback visible={visible} setVisible={setVisible} textNotifications={textNotifications} />
-    //   <PopUpNotifications text={text} setText={setText}/>
-    // </>
   )
 }
 

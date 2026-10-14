@@ -1,97 +1,25 @@
-import { useEffect, useRef, useState } from 'react'
 import s from './style.module.css'
-import { useGSAP } from '@gsap/react'
-import gsap from 'gsap'
+import { socials } from '../../data/resume'
+
 const SocialNetworks = () => {
-
-   useGSAP(() => {
-      gsap.timeline({
-         scrollTrigger: {
-            start: 'top top',
-            end: 'bottom bottom',
-            // markers: true,
-            scrub: true
-         }
-      }).to('.stickAnimation', {
-         height: 0
-      })
-   }, [])
-
-
-   const childRef = useRef(null)
-
-   const [fixedPosition, setFixedPosition] = useState()
-
-   useEffect(() => {
-      // const handleResize = () => {
-      //    setFixedPosition(blockRef.current. >= 1540)
-      // }
-
-      // handleResize()
-
-      // window.addEventListener('resize', handleResize)
-
-      // return () => {
-      //    window.removeEventListener('resize', handleResize)
-      // }
-
-      const childElement = childRef.current;
-      if (!childElement) return;
-
-      const parentElement = childElement.parentElement;
-      if (!parentElement) return;
-
-      
-      
-      const handleResize = () => {
-         console.log(parentElement.clientWidth , childElement.clientWidth );
-         setFixedPosition(parentElement.offsetWidth >= 1540)
-      }
-
-      handleResize()
-
-      window.addEventListener('resize', handleResize)
-
-      return () => {
-         window.removeEventListener('resize', handleResize)
-      }
-   }, [])
-
-
    return (
-      <div className={`${s.SocialNetworks}`} ref={childRef} style={fixedPosition ? {
-         flexFlow: 'column',
-         position: 'fixed',
-         left: 0,
-         bottom: 0,
-         paddingBottom: 0
-      } : {}}>
-         <a target='_blank' href="https://github.com/FantyI">
+      <div className={s.SocialNetworks}>
+         <a target='_blank' rel='noreferrer' href={socials.github} aria-label='GitHub' title='GitHub'>
             <svg width="32" height="32" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
                <path d="M20 28C20 28 20 24.9733 20 24C20 23.16 20.2 21.3867 19.3333 20.6667C21.1867 20.4933 22.64 19.8933 24 18.6667C25.36 17.44 26 15.5867 26 12.6667C26 10.6667 25.6667 9.33333 24.6667 8C25.0533 6.96 25.12 5.33333 24.6667 4C22.5867 4 20.7067 5.42667 20 6C19.48 5.86667 18.2267 5.33333 16 5.33333C13.7733 5.33333 12.52 5.86667 12 6C11.2933 5.42667 9.41333 4 7.33333 4C6.88 5.33333 6.94667 6.96 7.33333 8C6.33333 9.33333 6 10.6667 6 12.6667C6 15.5867 6.64 17.44 8 18.6667C9.36 19.8933 10.8133 20.4933 12.6667 20.6667C11.8 21.3867 12 23.16 12 24C12 24.9733 12 28 12 28" stroke="#676767" strokeWidth="2.66667" strokeLinecap="round" strokeLinejoin="round" />
                <path d="M12 25.3332C10.12 25.3332 8.21333 24.5865 7.08 23.7465C5.96 22.9065 5.62667 21.5332 4 20.6665" stroke="#676767" strokeWidth="2.66667" strokeLinecap="round" strokeLinejoin="round" />
             </svg>
          </a>
-         <a target='_blank' href="https://vk.com/id577804112">
+         <a target='_blank' rel='noreferrer' href={socials.vk} aria-label='ВКонтакте' title='ВКонтакте'>
             <svg width="32" height="32" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
                <path fillRule="evenodd" clipRule="evenodd" d="M30.2938 8.25C30.5163 7.545 30.2938 7.0325 29.3094 7.0325H26.0362C25.2106 7.0325 24.8294 7.48125 24.6069 7.96125C24.6069 7.96125 22.9231 12.0612 20.5719 14.7194C19.8094 15.4881 19.46 15.7444 19.0469 15.7444C18.8244 15.7444 18.5381 15.4881 18.5381 14.7837V8.21688C18.5381 7.38438 18.2844 7 17.585 7H12.4375C11.9288 7 11.6112 7.38438 11.6112 7.76875C11.6112 8.56938 12.7869 8.76187 12.9137 11.0037V15.875C12.9137 16.9319 12.7263 17.125 12.31 17.125C11.1981 17.125 8.4975 12.9931 6.8775 8.285C6.5625 7.3525 6.2425 7 5.41625 7H2.11188C1.15875 7 1 7.44813 1 7.92875C1 8.79375 2.11188 13.1494 6.17875 18.9144C8.87937 22.8519 12.7237 24.9681 16.1869 24.9681C18.2844 24.9681 18.5381 24.4875 18.5381 23.6869V20.7081C18.5381 19.7475 18.7288 19.5875 19.3962 19.5875C19.8725 19.5875 20.7306 19.8431 22.6688 21.7331C24.8925 23.975 25.2738 25 26.5131 25H29.7856C30.7388 25 31.1838 24.5194 30.9294 23.5906C30.6437 22.6619 29.5631 21.3169 28.165 19.7156C27.4025 18.8194 26.2587 17.8263 25.9094 17.3456C25.4331 16.705 25.56 16.4488 25.9094 15.8725C25.8775 15.8725 29.8813 10.1713 30.2938 8.2475" fill="#676767" />
             </svg>
          </a>
-         <a target='_blank' href="https://t.me/FantyI0">
+         <a target='_blank' rel='noreferrer' href={socials.telegram} aria-label='Telegram' title='Telegram'>
             <svg width="32" height="32" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
                <path fillRule="evenodd" clipRule="evenodd" d="M26.3692 5.90662C26.6987 5.76794 27.0593 5.72011 27.4136 5.76811C27.7678 5.81611 28.1027 5.95818 28.3834 6.17953C28.6642 6.40089 28.8804 6.69344 29.0097 7.02673C29.139 7.36002 29.1766 7.72187 29.1185 8.07462L26.0945 26.4173C25.8012 28.1866 23.8599 29.2013 22.2372 28.32C20.8799 27.5826 18.8639 26.4466 17.0505 25.2613C16.1439 24.668 13.3665 22.768 13.7079 21.416C14.0012 20.26 18.6679 15.916 21.3345 13.3333C22.3812 12.3186 21.9039 11.7333 20.6679 12.6666C17.5985 14.984 12.6705 18.508 11.0412 19.5C9.60386 20.3746 8.85453 20.524 7.95853 20.3746C6.32386 20.1026 4.80786 19.6813 3.57053 19.168C1.89853 18.4746 1.97986 16.176 3.5692 15.5066L26.3692 5.90662Z" fill="#676767" />
             </svg>
          </a>
-         <a target='_blank' href="">
-            <svg width="32" height="32" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
-               <path d="M22.667 11.3335C23.7716 11.3335 24.667 10.4381 24.667 9.3335C24.667 8.22893 23.7716 7.3335 22.667 7.3335C21.5624 7.3335 20.667 8.22893 20.667 9.3335C20.667 10.4381 21.5624 11.3335 22.667 11.3335Z" fill="#676767" />
-               <path d="M21.3333 4C25.0133 4 28 6.98667 28 10.6667V21.3333C28 25.0133 25.0133 28 21.3333 28H10.6667C6.98667 28 4 25.0133 4 21.3333V10.6667C4 6.98667 6.98667 4 10.6667 4H16H21.3333Z" stroke="#676767" strokeWidth="2.66667" strokeLinecap="round" strokeLinejoin="round" />
-               <path d="M16.0003 10.6665C18.947 10.6665 21.3337 13.0532 21.3337 15.9998C21.3337 18.9465 18.947 21.3332 16.0003 21.3332C13.0537 21.3332 10.667 18.9465 10.667 15.9998C10.667 13.0532 13.0537 10.6665 16.0003 10.6665Z" stroke="#676767" strokeWidth="2.66667" strokeLinecap="round" strokeLinejoin="round" />
-            </svg>
-         </a>
-         <div className={`${s.stick} stickAnimation`} style={!fixedPosition ? {
-            display: 'none'
-         } : {}}></div>
       </div>
    )
 }

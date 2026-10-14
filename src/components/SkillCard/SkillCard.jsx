@@ -1,24 +1,20 @@
 import { useEffect, useRef, useState } from 'react'
 import s from './style.module.css'
-import { useGSAP } from '@gsap/react'
-import gsap from 'gsap'
-import { SplitText } from 'gsap/all'
 
 const SkillCard = ({ data }) => {
-
-   
    const refIcon = useRef(null);
 
    const [fill, setFill] = useState('')
    const [isHover, setHover] = useState(false)
 
+   // Цвет рамки берём из первого элемента иконки
    useEffect(() => {
       if (refIcon.current) {
          const svg = refIcon.current.querySelector('svg')
          setFill(svg.firstElementChild.getAttribute('fill'));
       }
    }, [data]);
-   ///ref={refIcon}
+
    return (
       <div
          className={s.SkillCard}
@@ -26,8 +22,7 @@ const SkillCard = ({ data }) => {
          onMouseLeave={() => setHover(false)}
          style={{
             borderTop: `3px solid ${fill}`,
-            boxShadow: isHover && `0 0 35px 0 ${fill}`,
-            textAlign: 'center'
+            boxShadow: isHover ? `0 0 35px 0 ${fill}` : 'none',
          }}>
          <div className={s.icon} ref={refIcon}>
             {data.icon}

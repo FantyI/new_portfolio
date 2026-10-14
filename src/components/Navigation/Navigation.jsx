@@ -1,39 +1,27 @@
-import { useEffect, useState } from 'react'
 import s from './style.module.css'
-import { Routes } from 'react-router';
-import { useGSAP } from '@gsap/react';
-import gsap from 'gsap';
+import { personal } from '../../data/resume';
 
-const Navigation = ({ visible, setVisible, active, hide }) => {
+const links = [
+   { href: '#experience', name: 'Опыт' },
+   { href: '#skills', name: 'Навыки' },
+   { href: '#education', name: 'Образование' },
+   { href: '#qualities', name: 'Качества' },
+   { href: '#additional', name: 'Доп. инфо' },
+   { href: '#letter', name: 'Письмо' },
+]
 
-    useGSAP(() => {
-        gsap.timeline({
-            scrollTrigger: {
-                trigger: 'nav',
-                start: 'bottom top',
-                scrub: true
-            }
-        }).to('nav', {
-            backdropFilter: 'blur(10px)',
-            width: 1200,
-            borderRadius: 100,
-            padding: 'auto'
-        })
-    }, [])
-
-    return (
-        <nav className={`${s.navigate} ${active && s.active} ${hide && s.hide}`}>
-            <h1><a className={s.logo} href="#logo">FantyI</a></h1>
+const Navigation = ({ setVisible, active, hide }) => {
+   return (
+      <nav className={`${s.navigate} ${active ? s.active : ''} ${hide ? s.hide : ''} noPrint`}>
+         <div className={`${s.inner} container`}>
+            <a className={s.logo} href="#top">{personal.firstName}<span>.</span></a>
             <ul className={s.listNav}>
-                <li><a href="#about">Обо мне</a></li>
-                <li><a href="#skills">Навыки</a></li>
-                <li><a href="#works">Работы</a></li>
-                <li><a href="#reviews">Отзывы</a></li>
-                <li onClick={() => setVisible(true)}>Контакты</li>
-                <li><a href="#resume">Резюме</a></li>
+               {links.map(link => <li key={link.href}><a href={link.href}>{link.name}</a></li>)}
             </ul>
-        </nav>
-    )
+            <button className={s.contact} onClick={() => setVisible(true)}>Связаться</button>
+         </div>
+      </nav>
+   )
 }
 
 export default Navigation;

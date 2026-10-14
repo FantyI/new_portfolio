@@ -1,6 +1,6 @@
 .PopUpNotifications {
    position: fixed;
-   right: 30px;
+   right: 16px;
    bottom: -10px;
    font-size: 1.6rem;
    padding: 20px;
@@ -9,7 +9,7 @@
    border-radius: 10px;
    z-index: 1000;
    transition: all .2s;
-   width: 430px;
+   width: min(430px, calc(100% - 32px));
    box-sizing: border-box;
    text-align: center;
 }

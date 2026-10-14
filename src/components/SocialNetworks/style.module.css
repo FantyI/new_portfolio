@@ -1,20 +1,30 @@
 .SocialNetworks {
    display: flex;
    align-items: center;
+   gap: 16px;
+}
+
+.SocialNetworks a {
+   display: flex;
+   align-items: center;
    justify-content: center;
-   gap: 20px;
-   padding: 20px;
+   width: 48px;
+   height: 48px;
+   border-radius: 12px;
+   border: 1px solid var(--blockBorder);
+   background-color: var(--blockBackground);
+   transition: border-color .2s, transform .2s;
 }
 
-
-
-.fixedPosition::after {
-   content: '';
-   
+.SocialNetworks a:hover {
+   border-color: var(--highlightingColor);
+   transform: translateY(-3px);
 }
 
-.stick{
-   height: 150px;
-   width: 2px;
-   background-color: var(--gray);
+.SocialNetworks svg {
+   transition: filter .2s;
+}
+
+.SocialNetworks a:hover svg {
+   filter: brightness(2);
 }

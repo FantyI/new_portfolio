@@ -1,0 +1,88 @@
+.card {
+   display: grid;
+   grid-template-columns: auto 1fr auto;
+   gap: 28px;
+   align-items: center;
+   padding: 30px;
+   border-radius: 20px;
+   border: 1px solid var(--blockBorder);
+   background:
+      radial-gradient(circle at 100% 0, #a958ff22, transparent 50%),
+      var(--blockBackground);
+}
+
+.icon {
+   width: 64px;
+   height: 64px;
+   border-radius: 16px;
+   display: flex;
+   align-items: center;
+   justify-content: center;
+   background-color: var(--highlightingColor);
+   align-self: start;
+}
+
+.level {
+   font-size: 1.3rem;
+   text-transform: uppercase;
+   letter-spacing: .08em;
+   color: var(--muted);
+}
+
+.institution {
+   font-size: 2.2rem;
+   font-weight: 700;
+   margin-block: 4px 16px;
+}
+
+.details {
+   display: flex;
+   flex-flow: wrap;
+   gap: 12px 40px;
+
+   dt {
+      font-size: 1.3rem;
+      color: var(--gray);
+   }
+
+   dd {
+      font-size: 1.6rem;
+      font-weight: 500;
+   }
+}
+
+.year {
+   display: flex;
+   flex-flow: column;
+   align-items: center;
+   font-size: 1.4rem;
+   color: var(--muted);
+
+   span {
+      font-size: 4.8rem;
+      font-weight: 800;
+      line-height: 1;
+      color: var(--highlightingColor);
+   }
+}
+
+@media (max-width: 700px) {
+   .card {
+      grid-template-columns: 1fr;
+   }
+
+   .year {
+      align-items: flex-start;
+   }
+}
+
+@media print {
+   .icon {
+      display: none;
+   }
+
+   .card {
+      grid-template-columns: 1fr auto;
+      padding: 16px;
+   }
+}
