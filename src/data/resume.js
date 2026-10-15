@@ -2,7 +2,7 @@
 // Если что-то поменялось — правь здесь, сайт обновится сам.
 
 // Фото: положи файл в public/images/resume/photo.jpg — он подставится автоматически
-export const PHOTO = '/images/resume/photo.jpg'
+export const PHOTO = `${import.meta.env.BASE_URL}images/resume/photo.jpg`
 
 export const personal = {
    lastName: 'Тархов',

@@ -34,7 +34,7 @@ const Experience = () => {
                            {projects.map(project => (
                               <div className={s.project} key={project.title}>
                                  <a href={project.link} target='_blank' rel='noreferrer' className={s.preview}>
-                                    <img src={`/images/ImgCard/${project.title}.png`} alt={project.title} loading='lazy' />
+                                    <img src={`${import.meta.env.BASE_URL}images/ImgCard/${project.title}.png`} alt={project.title} loading='lazy' />
                                  </a>
                                  <div className={s.projectInfo}>
                                     <div className={s.projectTitle}>{project.title}</div>
